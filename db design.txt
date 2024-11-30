@@ -1,0 +1,286 @@
+Detailed Design Documentation for Adating Mobile App Database
+
+This document provides a detailed breakdown of the database structure, tables, fields, models, relationships, and migration files needed for the Adating Mobile App. The system includes user management, profile management, hobbies, characteristics, preferences, Q&A, matching system, and user interactions.
+1. Core User Management
+Table: users
+
+    Purpose: Stores basic user data.
+
+    Fields:
+        id (Primary Key, BIGINT) - Unique identifier.
+        name (VARCHAR(255)) - User's name.
+        email (VARCHAR(255), UNIQUE) - User's email.
+        password (VARCHAR(255)) - Hashed password.
+        is_active (BOOLEAN, Default: true) - Flag to check if user is active.
+        is_admin (BOOLEAN, Default: false) - Flag to differentiate between admin and user.
+        email_verified_at (TIMESTAMP, Nullable) - Timestamp when email was verified.
+        last_active_at (TIMESTAMP, Nullable) - Timestamp when the user last interacted with the app.
+        Timestamps (created_at, updated_at) - Auto-generated timestamps for creation and modification.
+
+    Model: User
+
+    Relationships:
+        One-to-Many: Can have multiple social logins and password reset requests.
+
+Table: social_logins
+
+    Purpose: Tracks third-party social login information for users.
+
+    Fields:
+        id (Primary Key, BIGINT) - Unique identifier.
+        user_id (BIGINT) - Foreign key to the users table.
+        provider (VARCHAR(50)) - Social login provider (e.g., 'google', 'facebook').
+        provider_user_id (VARCHAR(255)) - Unique ID from the social login provider.
+        Timestamps (created_at)
+
+    Model: SocialLogin
+
+    Relationships:
+        One-to-One: Belongs to User.
+
+Table: password_resets
+
+    Purpose: Stores password reset information (for email/password-based login).
+
+    Fields:
+        id (Primary Key, BIGINT) - Unique identifier.
+        user_id (BIGINT) - Foreign key to the users table.
+        email (VARCHAR(255)) - User's email.
+        token (VARCHAR(255)) - Token used for password reset.
+        otp (VARCHAR(6), Nullable) - OTP used for password reset.
+        expires_at (TIMESTAMP) - Expiration time of the reset request.
+        Timestamps (created_at).
+
+    Model: PasswordReset
+
+    Relationships:
+        Belongs to User.
+
+2. Profile Related Tables
+Table: genders
+
+    Purpose: Defines the gender options available.
+
+    Fields:
+        id (Primary Key, BIGINT) - Unique identifier.
+        name (VARCHAR(50)) - Gender name (e.g., 'Male', 'Female').
+        Timestamps (created_at).
+
+    Model: Gender
+
+    Relationships:
+        One-to-Many: Can be referenced by the user_profiles table.
+
+Table: goals
+
+    Purpose: Defines user goals (e.g., "Looking for a life partner").
+
+    Fields:
+        id (Primary Key, BIGINT) - Unique identifier.
+        name (VARCHAR(100)) - Goal description.
+        Timestamps (created_at).
+
+    Model: Goal
+
+    Relationships:
+        One-to-Many: Can be referenced by the user_profiles table.
+
+Table: religions
+
+    Purpose: Defines religion options for users.
+
+    Fields:
+        id (Primary Key, BIGINT) - Unique identifier.
+        name (VARCHAR(100)) - Religion name (e.g., 'Christianity').
+        Timestamps (created_at).
+
+    Model: Religion
+
+    Relationships:
+        One-to-Many: Can be referenced by the user_profiles table.
+
+Table: ethnicities
+
+    Purpose: Defines ethnicity options for users.
+
+    Fields:
+        id (Primary Key, BIGINT) - Unique identifier.
+        name (VARCHAR(100)) - Ethnicity name (e.g., 'Asian').
+        Timestamps (created_at).
+
+    Model: Ethnicity
+
+    Relationships:
+        One-to-Many: Can be referenced by the user_profiles table.
+
+Table: user_profiles
+
+    Purpose: Stores detailed profile information about users.
+
+    Fields:
+        id (Primary Key, BIGINT) - Unique identifier.
+        user_id (BIGINT) - Foreign key to the users table.
+        gender_id (BIGINT, Nullable) - Foreign key to the genders table.
+        goal_id (BIGINT, Nullable) - Foreign key to the goals table.
+        religion_id (BIGINT, Nullable) - Foreign key to the religions table.
+        ethnicity_id (BIGINT, Nullable) - Foreign key to the ethnicities table.
+        about (TEXT, Nullable) - A short bio about the user.
+        occupation (VARCHAR(255), Nullable) - Occupation of the user.
+        age (INT, Nullable) - Age of the user.
+        height (DECIMAL(5,2), Nullable) - Height of the user in centimeters.
+        Timestamps (created_at, updated_at).
+
+    Model: UserProfile
+
+    Relationships:
+        Belongs to User.
+        Belongs to Gender.
+        Belongs to Goal.
+        Belongs to Religion.
+        Belongs to Ethnicity.
+
+Table: education_details
+
+    Purpose: Stores user's education details.
+
+    Fields:
+        id (Primary Key, BIGINT) - Unique identifier.
+        user_profile_id (BIGINT) - Foreign key to user_profiles.
+        education_level (VARCHAR(100)) - Education level (e.g., 'Bachelors').
+        institution (VARCHAR(255), Nullable) - Name of the educational institution.
+        field_of_study (VARCHAR(255), Nullable) - The field of study.
+        year_completed (INT, Nullable) - Year of completion.
+        Timestamps (created_at).
+
+    Model: EducationDetail
+
+    Relationships:
+        Belongs to UserProfile.
+
+Table: user_photos
+
+    Purpose: Stores photos uploaded by users.
+
+    Fields:
+        id (Primary Key, BIGINT) - Unique identifier.
+        user_id (BIGINT) - Foreign key to users.
+        photo_url (VARCHAR(255)) - URL of the photo.
+        is_primary (BOOLEAN) - Flag indicating if the photo is the primary one.
+        Timestamps (created_at).
+
+    Model: UserPhoto
+
+    Relationships:
+        Belongs to User.
+
+3. Interests and Characteristics
+Table: hobbies
+
+    Purpose: Stores hobby options.
+
+    Fields:
+        id (Primary Key, BIGINT) - Unique identifier.
+        name (VARCHAR(100)) - Name of the hobby (e.g., "Movies").
+        Timestamps (created_at).
+
+    Model: Hobby
+
+    Relationships:
+        One-to-Many: Can be referenced by the user_hobbies table.
+
+Table: user_hobbies
+
+    Purpose: Stores the hobbies selected by users.
+
+    Fields:
+        id (Primary Key, BIGINT) - Unique identifier.
+        user_id (BIGINT) - Foreign key to users.
+        hobby_id (BIGINT) - Foreign key to hobbies.
+        Timestamps (created_at).
+
+    Model: UserHobby
+
+    Relationships:
+        Belongs to User.
+        Belongs to Hobby.
+
+Table: characteristics
+
+    Purpose: Stores characteristic options for users.
+
+    Fields:
+        id (Primary Key, BIGINT) - Unique identifier.
+        name (VARCHAR(100)) - Name of the characteristic.
+        Timestamps (created_at).
+
+    Model: Characteristic
+
+    Relationships:
+        One-to-Many: Can be referenced by the user_characteristics table.
+
+Table: user_characteristics
+
+    Purpose: Stores characteristics selected by users.
+
+    Fields:
+        id (Primary Key, BIGINT) - Unique identifier.
+        user_id (BIGINT) - Foreign key to users.
+        characteristic_id (BIGINT) - Foreign key to characteristics.
+        Timestamps (created_at).
+
+    Model: UserCharacteristic
+
+    Relationships:
+        Belongs to User.
+        Belongs to Characteristic.
+
+4. Q&A System
+Table: questions
+
+    Purpose: Stores Q&A questions.
+
+    Fields:
+        id (Primary Key, BIGINT) - Unique identifier.
+        title (VARCHAR(255)) - Question title.
+        is_active (BOOLEAN, Default: true) - Whether the question is active.
+        Timestamps (created_at).
+
+    Model: Question
+
+    Relationships:
+        One-to-Many: Can have multiple options (question_options).
+
+Table: question_options
+
+    Purpose: Stores the multiple options for each question.
+
+    Fields:
+        id (Primary Key, BIGINT) - Unique identifier.
+        question_id (BIGINT) - Foreign key to questions.
+        option_text (VARCHAR(255)) - Text for the option.
+        Timestamps (created_at).
+
+    Model: QuestionOption
+
+    Relationships:
+        Belongs to Question.
+
+Table: user_answers
+
+    Purpose: Tracks the answers chosen by users.
+
+    Fields:
+        id (Primary Key, BIGINT) - Unique identifier.
+        user_id (BIGINT) - Foreign key to users.
+        question_id (BIGINT) - Foreign key to questions.
+        option_id (BIGINT) - Foreign key to question_options.
+        Timestamps (created_at).
+
+    Model: UserAnswer
+
+    Relationships:
+        Belongs to User.
+        Belongs to Question.
+        Belongs to QuestionOption.
+
+This documentation includes all the details needed to create your database schema. Do you need the migration code for each of these tables or any specific details? Let me know if you'd like to proceed with that!

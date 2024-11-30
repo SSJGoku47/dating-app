@@ -1,0 +1,2355 @@
+{
+	"info": {
+		"_postman_id": "16ec9053-b015-4290-a1ab-144567f19683",
+		"name": "Dating App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39730608"
+	},
+	"item": [
+		{
+			"name": "Mobile",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"ankit123@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://dating_app.test/api/mobile/login",
+									"protocol": "https",
+									"host": [
+										"dating_app",
+										"test"
+									],
+									"path": [
+										"api",
+										"mobile",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Register",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{   \r\n    \"name\":\"Sanjana Trivedi\",\r\n    \"email\": \"sanju@gmail.com\",\r\n    \"password\": \"password\",\r\n    \"password_confirmation\" : \"password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://dating_app.test/api/mobile/register",
+									"protocol": "https",
+									"host": [
+										"dating_app",
+										"test"
+									],
+									"path": [
+										"api",
+										"mobile",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Logout",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://dating_app.test/api/mobile/logout",
+									"protocol": "https",
+									"host": [
+										"dating_app",
+										"test"
+									],
+									"path": [
+										"api",
+										"mobile",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Forgot password OTP send",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"ankit123@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://dating_app.test/api/mobile/password/send-otp",
+									"protocol": "https",
+									"host": [
+										"dating_app",
+										"test"
+									],
+									"path": [
+										"api",
+										"mobile",
+										"password",
+										"send-otp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Forgot password OTP verify",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"ankit123@gmail.com\",\r\n    \"otp\": 263424\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://dating_app.test/api/mobile/password/verify-otp",
+									"protocol": "https",
+									"host": [
+										"dating_app",
+										"test"
+									],
+									"path": [
+										"api",
+										"mobile",
+										"password",
+										"verify-otp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reset Password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{   \r\n    \"email\": \"ankit123@gmail.com\",\r\n    \"password\": \"12345678\",\r\n    \"password_confirmation\" : \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://dating_app.test/api/mobile/password/reset",
+									"protocol": "https",
+									"host": [
+										"dating_app",
+										"test"
+									],
+									"path": [
+										"api",
+										"mobile",
+										"password",
+										"reset"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Social Login",
+					"item": [
+						{
+							"name": "Social Login",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "https://dating_app.test/api/mobile/social_login/google/callback",
+									"protocol": "https",
+									"host": [
+										"dating_app",
+										"test"
+									],
+									"path": [
+										"api",
+										"mobile",
+										"social_login",
+										"google",
+										"callback"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "https://dating_app.test/api/mobile/social_login/{provider}",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://dating_app.test/api/mobile/social_login/google",
+									"protocol": "https",
+									"host": [
+										"dating_app",
+										"test"
+									],
+									"path": [
+										"api",
+										"mobile",
+										"social_login",
+										"google"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "User Profile",
+					"item": [
+						{
+							"name": "Gender",
+							"item": [
+								{
+									"name": "Get Genders",
+									"request": {
+										"auth": {
+											"type": "oauth2",
+											"oauth2": [
+												{
+													"key": "clientSecret",
+													"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+													"type": "string"
+												},
+												{
+													"key": "clientId",
+													"value": "2",
+													"type": "string"
+												},
+												{
+													"key": "tokenName",
+													"value": "authToken",
+													"type": "string"
+												},
+												{
+													"key": "addTokenTo",
+													"value": "header",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://dating_app.test/api/mobile/get/genders",
+											"protocol": "https",
+											"host": [
+												"dating_app",
+												"test"
+											],
+											"path": [
+												"api",
+												"mobile",
+												"get",
+												"genders"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Set Gender Preference for user",
+									"request": {
+										"auth": {
+											"type": "oauth2",
+											"oauth2": [
+												{
+													"key": "clientSecret",
+													"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+													"type": "string"
+												},
+												{
+													"key": "clientId",
+													"value": "2",
+													"type": "string"
+												},
+												{
+													"key": "tokenName",
+													"value": "authToken",
+													"type": "string"
+												},
+												{
+													"key": "addTokenTo",
+													"value": "header",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"gender_id\":2,\r\n    \"match_gender_preference_id\": 1\r\n}\r\n\r\n\r\n//Male : 1\r\n//Female : 2\r\n//Other : 3",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://dating_app.test/api/mobile/preferences/gender",
+											"protocol": "https",
+											"host": [
+												"dating_app",
+												"test"
+											],
+											"path": [
+												"api",
+												"mobile",
+												"preferences",
+												"gender"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Goal",
+							"item": [
+								{
+									"name": "Get Goals",
+									"request": {
+										"auth": {
+											"type": "oauth2",
+											"oauth2": [
+												{
+													"key": "clientSecret",
+													"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+													"type": "string"
+												},
+												{
+													"key": "clientId",
+													"value": "2",
+													"type": "string"
+												},
+												{
+													"key": "tokenName",
+													"value": "authToken",
+													"type": "string"
+												},
+												{
+													"key": "addTokenTo",
+													"value": "header",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://dating_app.test/api/mobile/get/goals",
+											"protocol": "https",
+											"host": [
+												"dating_app",
+												"test"
+											],
+											"path": [
+												"api",
+												"mobile",
+												"get",
+												"goals"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Set User Goals",
+									"request": {
+										"auth": {
+											"type": "oauth2",
+											"oauth2": [
+												{
+													"key": "clientSecret",
+													"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+													"type": "string"
+												},
+												{
+													"key": "clientId",
+													"value": "2",
+													"type": "string"
+												},
+												{
+													"key": "tokenName",
+													"value": "authToken",
+													"type": "string"
+												},
+												{
+													"key": "addTokenTo",
+													"value": "header",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"goals\" : [\"1\",\"3\"]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://dating_app.test/api/mobile/preferences/goals",
+											"protocol": "https",
+											"host": [
+												"dating_app",
+												"test"
+											],
+											"path": [
+												"api",
+												"mobile",
+												"preferences",
+												"goals"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Hobbies",
+							"item": [
+								{
+									"name": "Get Hobbies",
+									"request": {
+										"auth": {
+											"type": "oauth2",
+											"oauth2": [
+												{
+													"key": "clientSecret",
+													"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+													"type": "string"
+												},
+												{
+													"key": "clientId",
+													"value": "2",
+													"type": "string"
+												},
+												{
+													"key": "tokenName",
+													"value": "authToken",
+													"type": "string"
+												},
+												{
+													"key": "addTokenTo",
+													"value": "header",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://dating_app.test/api/mobile/get/hobbies",
+											"protocol": "https",
+											"host": [
+												"dating_app",
+												"test"
+											],
+											"path": [
+												"api",
+												"mobile",
+												"get",
+												"hobbies"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Set User Hobbies",
+									"request": {
+										"auth": {
+											"type": "oauth2",
+											"oauth2": [
+												{
+													"key": "clientSecret",
+													"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+													"type": "string"
+												},
+												{
+													"key": "clientId",
+													"value": "2",
+													"type": "string"
+												},
+												{
+													"key": "tokenName",
+													"value": "authToken",
+													"type": "string"
+												},
+												{
+													"key": "addTokenTo",
+													"value": "header",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"hobbies\" : [\"3\",\"4\",\"5\"]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://dating_app.test/api/mobile/preferences/hobbies",
+											"protocol": "https",
+											"host": [
+												"dating_app",
+												"test"
+											],
+											"path": [
+												"api",
+												"mobile",
+												"preferences",
+												"hobbies"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Characteristics",
+							"item": [
+								{
+									"name": "Get Characteristics",
+									"request": {
+										"auth": {
+											"type": "oauth2",
+											"oauth2": [
+												{
+													"key": "clientSecret",
+													"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+													"type": "string"
+												},
+												{
+													"key": "clientId",
+													"value": "2",
+													"type": "string"
+												},
+												{
+													"key": "tokenName",
+													"value": "authToken",
+													"type": "string"
+												},
+												{
+													"key": "addTokenTo",
+													"value": "header",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://dating_app.test/api/mobile/get/characteristics",
+											"protocol": "https",
+											"host": [
+												"dating_app",
+												"test"
+											],
+											"path": [
+												"api",
+												"mobile",
+												"get",
+												"characteristics"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Set User  Characteristics",
+									"request": {
+										"auth": {
+											"type": "oauth2",
+											"oauth2": [
+												{
+													"key": "clientSecret",
+													"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+													"type": "string"
+												},
+												{
+													"key": "clientId",
+													"value": "2",
+													"type": "string"
+												},
+												{
+													"key": "tokenName",
+													"value": "authToken",
+													"type": "string"
+												},
+												{
+													"key": "addTokenTo",
+													"value": "header",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"characteristics\" : [\"1\",\"4\",\"6\",\"7\"]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://dating_app.test/api/mobile/preferences/characteristics",
+											"protocol": "https",
+											"host": [
+												"dating_app",
+												"test"
+											],
+											"path": [
+												"api",
+												"mobile",
+												"preferences",
+												"characteristics"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Education Qualifications",
+							"item": [
+								{
+									"name": "Get Education Options",
+									"request": {
+										"auth": {
+											"type": "oauth2",
+											"oauth2": [
+												{
+													"key": "clientSecret",
+													"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+													"type": "string"
+												},
+												{
+													"key": "clientId",
+													"value": "2",
+													"type": "string"
+												},
+												{
+													"key": "tokenName",
+													"value": "authToken",
+													"type": "string"
+												},
+												{
+													"key": "addTokenTo",
+													"value": "header",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://dating_app.test/api/mobile/profile/education-options",
+											"protocol": "https",
+											"host": [
+												"dating_app",
+												"test"
+											],
+											"path": [
+												"api",
+												"mobile",
+												"profile",
+												"education-options"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Set User Education Details",
+									"request": {
+										"auth": {
+											"type": "oauth2",
+											"oauth2": [
+												{
+													"key": "clientSecret",
+													"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+													"type": "string"
+												},
+												{
+													"key": "clientId",
+													"value": "2",
+													"type": "string"
+												},
+												{
+													"key": "tokenName",
+													"value": "authToken",
+													"type": "string"
+												},
+												{
+													"key": "addTokenTo",
+													"value": "header",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"education_qualifications_id\": 5\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://dating_app.test/api/mobile/profile/education",
+											"protocol": "https",
+											"host": [
+												"dating_app",
+												"test"
+											],
+											"path": [
+												"api",
+												"mobile",
+												"profile",
+												"education"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Profile Photos",
+							"item": [
+								{
+									"name": "Get User Avatar images options",
+									"request": {
+										"auth": {
+											"type": "oauth2",
+											"oauth2": [
+												{
+													"key": "clientSecret",
+													"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+													"type": "string"
+												},
+												{
+													"key": "clientId",
+													"value": "2",
+													"type": "string"
+												},
+												{
+													"key": "tokenName",
+													"value": "authToken",
+													"type": "string"
+												},
+												{
+													"key": "addTokenTo",
+													"value": "header",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://dating_app.test/api/mobile/profile/avatar-images",
+											"protocol": "https",
+											"host": [
+												"dating_app",
+												"test"
+											],
+											"path": [
+												"api",
+												"mobile",
+												"profile",
+												"avatar-images"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Set User Avatar",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "https://dating_app.test/api/mobile/profile/picture",
+											"protocol": "https",
+											"host": [
+												"dating_app",
+												"test"
+											],
+											"path": [
+												"api",
+												"mobile",
+												"profile",
+												"picture"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Set Primary Profile Picture",
+									"request": {
+										"auth": {
+											"type": "oauth2",
+											"oauth2": [
+												{
+													"key": "clientSecret",
+													"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+													"type": "string"
+												},
+												{
+													"key": "clientId",
+													"value": "2",
+													"type": "string"
+												},
+												{
+													"key": "tokenName",
+													"value": "authToken",
+													"type": "string"
+												},
+												{
+													"key": "addTokenTo",
+													"value": "header",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"photo_id\": 22\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://dating_app.test/api/mobile/profile/picture/primary",
+											"protocol": "https",
+											"host": [
+												"dating_app",
+												"test"
+											],
+											"path": [
+												"api",
+												"mobile",
+												"profile",
+												"picture",
+												"primary"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Upload Profile image",
+									"request": {
+										"auth": {
+											"type": "oauth2",
+											"oauth2": [
+												{
+													"key": "clientSecret",
+													"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+													"type": "string"
+												},
+												{
+													"key": "clientId",
+													"value": "2",
+													"type": "string"
+												},
+												{
+													"key": "tokenName",
+													"value": "authToken",
+													"type": "string"
+												},
+												{
+													"key": "addTokenTo",
+													"value": "header",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "image",
+													"type": "file",
+													"src": "/C:/Users/Admin/Downloads/2151133605.jpg"
+												}
+											]
+										},
+										"url": {
+											"raw": "https://dating_app.test/api/mobile/profile/image/upload",
+											"protocol": "https",
+											"host": [
+												"dating_app",
+												"test"
+											],
+											"path": [
+												"api",
+												"mobile",
+												"profile",
+												"image",
+												"upload"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Ethnicity",
+							"item": [
+								{
+									"name": "Get Ethnicities",
+									"request": {
+										"auth": {
+											"type": "oauth2",
+											"oauth2": [
+												{
+													"key": "clientSecret",
+													"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+													"type": "string"
+												},
+												{
+													"key": "clientId",
+													"value": "2",
+													"type": "string"
+												},
+												{
+													"key": "tokenName",
+													"value": "authToken",
+													"type": "string"
+												},
+												{
+													"key": "addTokenTo",
+													"value": "header",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://dating_app.test/api/mobile/get/ethnicities",
+											"protocol": "https",
+											"host": [
+												"dating_app",
+												"test"
+											],
+											"path": [
+												"api",
+												"mobile",
+												"get",
+												"ethnicities"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "User Bio",
+							"item": [
+								{
+									"name": "https://dating_app.test/api/mobile/profile/bio",
+									"request": {
+										"auth": {
+											"type": "oauth2",
+											"oauth2": [
+												{
+													"key": "clientSecret",
+													"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+													"type": "string"
+												},
+												{
+													"key": "clientId",
+													"value": "2",
+													"type": "string"
+												},
+												{
+													"key": "tokenName",
+													"value": "authToken",
+													"type": "string"
+												},
+												{
+													"key": "addTokenTo",
+													"value": "header",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"ethnicity_id\": 1,\r\n    \"age\" : 25,\r\n    \"height\": 5.11,\r\n    \"about\" : \"handsome girl\",\r\n    \"occupation\" : \"Doctor\",\r\n    \"religion\": \"Jew\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://dating_app.test/api/mobile/profile/bio",
+											"protocol": "https",
+											"host": [
+												"dating_app",
+												"test"
+											],
+											"path": [
+												"api",
+												"mobile",
+												"profile",
+												"bio"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Q&A",
+					"item": [
+						{
+							"name": "Get Questions",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "clientSecret",
+											"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+											"type": "string"
+										},
+										{
+											"key": "clientId",
+											"value": "2",
+											"type": "string"
+										},
+										{
+											"key": "tokenName",
+											"value": "authToken",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://dating_app.test/api/mobile/qna/questions",
+									"protocol": "https",
+									"host": [
+										"dating_app",
+										"test"
+									],
+									"path": [
+										"api",
+										"mobile",
+										"qna",
+										"questions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Set User answers",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "clientSecret",
+											"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+											"type": "string"
+										},
+										{
+											"key": "clientId",
+											"value": "2",
+											"type": "string"
+										},
+										{
+											"key": "tokenName",
+											"value": "authToken",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"answers\": [\r\n    {\r\n      \"question_id\": 1,\r\n      \"selected_answer\": \"Relaxing at home with a book or movie\"\r\n    },\r\n    {\r\n      \"question_id\": 2,\r\n      \"selected_answer\": \"Beach and sunbathing\"\r\n    },\r\n    {\r\n      \"question_id\": 3,\r\n      \"selected_answer\": \"Cooking a nice meal at home\"\r\n    },\r\n    {\r\n      \"question_id\": 4,\r\n      \"selected_answer\": \"Trust and honesty\"\r\n    },\r\n    {\r\n      \"question_id\": 5,\r\n      \"selected_answer\": \"Listening to music or podcasts\"\r\n    },\r\n    {\r\n      \"question_id\": 6,\r\n      \"selected_answer\": \"Romantic comedies or dramas\"\r\n    },\r\n    {\r\n      \"question_id\": 7,\r\n      \"selected_answer\": \"A cozy dinner with close friends\"\r\n    },\r\n    {\r\n      \"question_id\": 8,\r\n      \"selected_answer\": \"I love them and have one or more!\"\r\n    },\r\n    {\r\n      \"question_id\": 9,\r\n      \"selected_answer\": \"Solo workouts like running or cycling\"\r\n    },\r\n    {\r\n      \"question_id\": 10,\r\n      \"selected_answer\": \"A casual coffee or drink\"\r\n    }\r\n  ]\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://dating_app.test/api/mobile/qna/user/answers",
+									"protocol": "https",
+									"host": [
+										"dating_app",
+										"test"
+									],
+									"path": [
+										"api",
+										"mobile",
+										"qna",
+										"user",
+										"answers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Answered Questions",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "clientSecret",
+											"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+											"type": "string"
+										},
+										{
+											"key": "clientId",
+											"value": "2",
+											"type": "string"
+										},
+										{
+											"key": "tokenName",
+											"value": "authToken",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"profile_id\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://dating_app.test/api/mobile/user/qna/answered",
+									"protocol": "https",
+									"host": [
+										"dating_app",
+										"test"
+									],
+									"path": [
+										"api",
+										"mobile",
+										"user",
+										"qna",
+										"answered"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Home Screen",
+					"item": [
+						{
+							"name": "Matches",
+							"item": [
+								{
+									"name": "Homescreen Match Options",
+									"request": {
+										"auth": {
+											"type": "oauth2",
+											"oauth2": [
+												{
+													"key": "clientSecret",
+													"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+													"type": "string"
+												},
+												{
+													"key": "clientId",
+													"value": "2",
+													"type": "string"
+												},
+												{
+													"key": "tokenName",
+													"value": "authToken",
+													"type": "string"
+												},
+												{
+													"key": "addTokenTo",
+													"value": "header",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://dating_app.test/api/mobile/user/matches/potentialmatch",
+											"protocol": "https",
+											"host": [
+												"dating_app",
+												"test"
+											],
+											"path": [
+												"api",
+												"mobile",
+												"user",
+												"matches",
+												"potentialmatch"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "User Home screen matches",
+									"request": {
+										"auth": {
+											"type": "oauth2",
+											"oauth2": [
+												{
+													"key": "clientSecret",
+													"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+													"type": "string"
+												},
+												{
+													"key": "clientId",
+													"value": "2",
+													"type": "string"
+												},
+												{
+													"key": "tokenName",
+													"value": "authToken",
+													"type": "string"
+												},
+												{
+													"key": "addTokenTo",
+													"value": "header",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://dating_app.test/api/mobile/user/matches/getAll",
+											"protocol": "https",
+											"host": [
+												"dating_app",
+												"test"
+											],
+											"path": [
+												"api",
+												"mobile",
+												"user",
+												"matches",
+												"getAll"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "User Filter Matches",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "oauth2",
+											"oauth2": [
+												{
+													"key": "clientSecret",
+													"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+													"type": "string"
+												},
+												{
+													"key": "clientId",
+													"value": "2",
+													"type": "string"
+												},
+												{
+													"key": "tokenName",
+													"value": "authToken",
+													"type": "string"
+												},
+												{
+													"key": "addTokenTo",
+													"value": "header",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"age_min\": 25,\r\n    \"age_max\": 30,\r\n    \"ethnicity_id\" :1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://dating_app.test/api/mobile/user/matches/filters",
+											"protocol": "https",
+											"host": [
+												"dating_app",
+												"test"
+											],
+											"path": [
+												"api",
+												"mobile",
+												"user",
+												"matches",
+												"filters"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "User Matches Swipes",
+									"request": {
+										"auth": {
+											"type": "oauth2",
+											"oauth2": [
+												{
+													"key": "clientSecret",
+													"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+													"type": "string"
+												},
+												{
+													"key": "clientId",
+													"value": "2",
+													"type": "string"
+												},
+												{
+													"key": "tokenName",
+													"value": "authToken",
+													"type": "string"
+												},
+												{
+													"key": "addTokenTo",
+													"value": "header",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"swiped_user_id\": 4,\r\n    \"action\":true\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://dating_app.test/api/mobile/user/matches/swipe",
+											"protocol": "https",
+											"host": [
+												"dating_app",
+												"test"
+											],
+											"path": [
+												"api",
+												"mobile",
+												"user",
+												"matches",
+												"swipe"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Match Status",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "oauth2",
+											"oauth2": [
+												{
+													"key": "clientSecret",
+													"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+													"type": "string"
+												},
+												{
+													"key": "clientId",
+													"value": "2",
+													"type": "string"
+												},
+												{
+													"key": "tokenName",
+													"value": "authToken",
+													"type": "string"
+												},
+												{
+													"key": "addTokenTo",
+													"value": "header",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"swiped_user_id\": 4\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://dating_app.test/api/mobile/user/matches/status",
+											"protocol": "https",
+											"host": [
+												"dating_app",
+												"test"
+											],
+											"path": [
+												"api",
+												"mobile",
+												"user",
+												"matches",
+												"status"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Match Details",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://dating_app.test/api/mobile/user/matches/details/{{user_id}}",
+											"protocol": "https",
+											"host": [
+												"dating_app",
+												"test"
+											],
+											"path": [
+												"api",
+												"mobile",
+												"user",
+												"matches",
+												"details",
+												"{{user_id}}"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Chat",
+							"item": [
+								{
+									"name": "Chat Start",
+									"request": {
+										"auth": {
+											"type": "oauth2",
+											"oauth2": [
+												{
+													"key": "clientSecret",
+													"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+													"type": "string"
+												},
+												{
+													"key": "clientId",
+													"value": "2",
+													"type": "string"
+												},
+												{
+													"key": "tokenName",
+													"value": "authToken",
+													"type": "string"
+												},
+												{
+													"key": "addTokenTo",
+													"value": "header",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"reciever_user_id\": 4\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://dating_app.test/api/mobile/user/chat/start",
+											"protocol": "https",
+											"host": [
+												"dating_app",
+												"test"
+											],
+											"path": [
+												"api",
+												"mobile",
+												"user",
+												"chat",
+												"start"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Mesaage",
+									"request": {
+										"auth": {
+											"type": "oauth2",
+											"oauth2": [
+												{
+													"key": "clientSecret",
+													"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+													"type": "string"
+												},
+												{
+													"key": "clientId",
+													"value": "2",
+													"type": "string"
+												},
+												{
+													"key": "tokenName",
+													"value": "authToken",
+													"type": "string"
+												},
+												{
+													"key": "addTokenTo",
+													"value": "header",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{   \r\n    \"chat_id\": 1,\r\n    \"receiver_id\": 4,\r\n    \"message\": \"Hello Sanjana\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://dating_app.test/api/mobile/user/chat/message",
+											"protocol": "https",
+											"host": [
+												"dating_app",
+												"test"
+											],
+											"path": [
+												"api",
+												"mobile",
+												"user",
+												"chat",
+												"message"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "User Chat History",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "oauth2",
+											"oauth2": [
+												{
+													"key": "clientSecret",
+													"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+													"type": "string"
+												},
+												{
+													"key": "clientId",
+													"value": "2",
+													"type": "string"
+												},
+												{
+													"key": "tokenName",
+													"value": "authToken",
+													"type": "string"
+												},
+												{
+													"key": "addTokenTo",
+													"value": "header",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://dating_app.test/api/mobile/user/chat/history",
+											"protocol": "https",
+											"host": [
+												"dating_app",
+												"test"
+											],
+											"path": [
+												"api",
+												"mobile",
+												"user",
+												"chat",
+												"history"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Web",
+			"item": [
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Get all users",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "clientSecret",
+											"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+											"type": "string"
+										},
+										{
+											"key": "clientId",
+											"value": "2",
+											"type": "string"
+										},
+										{
+											"key": "tokenName",
+											"value": "authToken",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://dating_app.test/api/auth/admin/user/getAll",
+									"protocol": "https",
+									"host": [
+										"dating_app",
+										"test"
+									],
+									"path": [
+										"api",
+										"auth",
+										"admin",
+										"user",
+										"getAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get User info view",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "clientSecret",
+											"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+											"type": "string"
+										},
+										{
+											"key": "clientId",
+											"value": "2",
+											"type": "string"
+										},
+										{
+											"key": "tokenName",
+											"value": "authToken",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://dating_app.test/api/auth/admin/user/get/4",
+									"protocol": "https",
+									"host": [
+										"dating_app",
+										"test"
+									],
+									"path": [
+										"api",
+										"auth",
+										"admin",
+										"user",
+										"get",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deactivate a user",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "clientSecret",
+											"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+											"type": "string"
+										},
+										{
+											"key": "clientId",
+											"value": "2",
+											"type": "string"
+										},
+										{
+											"key": "tokenName",
+											"value": "authToken",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://dating_app.test/api/auth/admin/user/deactivate/4",
+									"protocol": "https",
+									"host": [
+										"dating_app",
+										"test"
+									],
+									"path": [
+										"api",
+										"auth",
+										"admin",
+										"user",
+										"deactivate",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete user",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "clientSecret",
+											"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+											"type": "string"
+										},
+										{
+											"key": "clientId",
+											"value": "2",
+											"type": "string"
+										},
+										{
+											"key": "tokenName",
+											"value": "authToken",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://dating_app.test/api/auth/admin/user/delete/4",
+									"protocol": "https",
+									"host": [
+										"dating_app",
+										"test"
+									],
+									"path": [
+										"api",
+										"auth",
+										"admin",
+										"user",
+										"delete",
+										"4"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Questions",
+					"item": [
+						{
+							"name": "Get All QA",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "clientSecret",
+											"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+											"type": "string"
+										},
+										{
+											"key": "clientId",
+											"value": "2",
+											"type": "string"
+										},
+										{
+											"key": "tokenName",
+											"value": "authToken",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://dating_app.test/api/auth/admin/get/questions",
+									"protocol": "https",
+									"host": [
+										"dating_app",
+										"test"
+									],
+									"path": [
+										"api",
+										"auth",
+										"admin",
+										"get",
+										"questions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a QA",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "clientSecret",
+											"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+											"type": "string"
+										},
+										{
+											"key": "clientId",
+											"value": "2",
+											"type": "string"
+										},
+										{
+											"key": "tokenName",
+											"value": "authToken",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"What is the capital of France?\",\r\n    \"option_1\": \"Berlin\",\r\n    \"option_2\": \"Madrid\",\r\n    \"option_3\": \"Paris\",\r\n    \"option_4\": \"Rome\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://dating_app.test/api/auth/admin/create/questions",
+									"protocol": "https",
+									"host": [
+										"dating_app",
+										"test"
+									],
+									"path": [
+										"api",
+										"auth",
+										"admin",
+										"create",
+										"questions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a question",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "clientSecret",
+											"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+											"type": "string"
+										},
+										{
+											"key": "clientId",
+											"value": "2",
+											"type": "string"
+										},
+										{
+											"key": "tokenName",
+											"value": "authToken",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://dating_app.test/api/auth/admin/view/questions/11",
+									"protocol": "https",
+									"host": [
+										"dating_app",
+										"test"
+									],
+									"path": [
+										"api",
+										"auth",
+										"admin",
+										"view",
+										"questions",
+										"11"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update a question",
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "clientSecret",
+											"value": "gM00OTrvDgK6FN5Xws74Ihc5UQLBte8PjOeehlWh",
+											"type": "string"
+										},
+										{
+											"key": "clientId",
+											"value": "2",
+											"type": "string"
+										},
+										{
+											"key": "tokenName",
+											"value": "authToken",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"What is the capital of France?\",\r\n    \"option_1\": \"Berlin\",\r\n    \"option_2\": \"Madrid\",\r\n    \"option_3\": \"Paris\",\r\n    \"option_4\": \"Delhi\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://dating_app.test/api/auth/admin/update/questions/11",
+									"protocol": "https",
+									"host": [
+										"dating_app",
+										"test"
+									],
+									"path": [
+										"api",
+										"auth",
+										"admin",
+										"update",
+										"questions",
+										"11"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
